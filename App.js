@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 import reducer from "./reducers";
+import { setLocalNotification } from "./util/helper";
 
 import Deck from "./components/Deck";
 import Quiz from "./components/Quiz";
@@ -48,6 +49,10 @@ export default class App extends React.Component {
       Roboto: require("native-base/Fonts/Roboto.ttf"),
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
     });
+  }
+
+  componentDidMount() {
+    setLocalNotification();
   }
 
   render() {
