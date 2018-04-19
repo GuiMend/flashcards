@@ -23,7 +23,7 @@ const ContentText = styled.Text`
   font-size: 15;
 `;
 
-const Deck = ({ index, title, questions, onPress = null }) => (
+const DeckCard = ({ index, title, questions = [], onPress = null }) => (
   <DeckTouchable
     onPress={() => {
       if (onPress) onPress(index);
@@ -38,4 +38,4 @@ const Deck = ({ index, title, questions, onPress = null }) => (
   </DeckTouchable>
 );
 
-export default Deck;
+export default DeckCard;
