@@ -38,9 +38,15 @@ class Quiz extends Component {
   };
   render() {
     const { questions } = this.props.navigation.state.params;
-    const { currentQuestion, score } = this.props;
+    const { currentQuestion, score, navigation } = this.props;
     if (currentQuestion >= questions.length) {
-      return <Result score={score} maxScore={questions.length} />;
+      return (
+        <Result
+          score={score}
+          maxScore={questions.length}
+          navigation={navigation}
+        />
+      );
     }
     return (
       <Container>

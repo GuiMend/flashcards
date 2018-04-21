@@ -14,7 +14,6 @@ import styled from "styled-components/native";
 import { AsyncStorage } from "react-native";
 import { saveDeckTitle } from "../util/storage";
 import { addDeckToRedux } from "../reducers/actions";
-import { clearLocalNotification, setLocalNotification } from "../util/helper";
 
 const WrapperTitle = styled.View`
   margin-top: 20;
@@ -69,11 +68,10 @@ class NewDeck extends Component {
     saveDeckTitle(title).then(res => {
       this.setState({ title: "" });
       this.props.dispatch(addDeckToRedux({ title, questions: [] }));
-      this.props.navigation.navigate("AddCard", {
-        deck: title
+      this.props.navigation.navigate("Deck", {
+        deck: { title, questions: [] }
       });
     });
-    clearLocalNotification().then(setLocalNotification);
   };
   handleChange = value => {
     this.setState({ title: value });

@@ -70,7 +70,7 @@ class AddCard extends Component {
               />
             </Item>
             <SubmitButton
-              disabled={question === "" || answer === "" ? true : false}
+              disabled={question === "" || answer === ""}
               transparent
               onPress={() => this.addCard(params.deck)}
             >
